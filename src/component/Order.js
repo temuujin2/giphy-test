@@ -12,7 +12,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function VariableWidthGrid() {
+export const Order = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={3}>
@@ -27,3 +27,4 @@ export default function VariableWidthGrid() {
     </Box>
   );
 }
+
