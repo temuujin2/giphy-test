@@ -5,27 +5,31 @@ import CssBaseline from "@mui/material/CssBaseline";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import DateRangeIcon from "@mui/icons-material/DateRange";
-import DataSaverOffIcon from "@mui/icons-material/DataSaverOff";
-import SettingsIcon from "@mui/icons-material/Settings";
-import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
+import NoteAltIcon from '@mui/icons-material/NoteAlt';
+import AssessmentIcon from '@mui/icons-material/Assessment';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import FoodBankIcon from '@mui/icons-material/FoodBank';
+
 import {
   BrowserRouter as Router,
   Route,
   Link, Routes
 } from "react-router-dom";
+import { SearchAppBar } from "../TopNav";
+import Logo from '../images/food-logo.png'
 
 import {Order} from './Order'
+import { Graphic } from "./Graphic";
+import { Setting } from "./Setting";
+import { Menu } from "./Menu";
 
 
-const drawerWidth = 220;
-const menuIcons = [<DateRangeIcon/>, <DataSaverOffIcon/>, <SettingsIcon/>, <RestaurantMenuIcon/>];
+const drawerWidth = 200;
+const menuIcons = [<NoteAltIcon/>, <AssessmentIcon/>, <ManageAccountsIcon/>, <FoodBankIcon/>];
 const menuItemList = [{name: 'Захиалга', pathname: 'order'},
                       {name: 'График', pathname: 'graphic'},
                       {name: 'Тохиргоо', pathname: 'setting'},
@@ -38,26 +42,18 @@ export default function PermanentDrawerLeft() {
       <CssBaseline />
       <AppBar
         position="fixed"
-        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px`, background:"white", color:'black' }}
+        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px`, background:"white", color:'black', boxShadow:'none', border:'none' }}
       >
-        <Toolbar>
-          
-          <Typography variant="h6" noWrap component="div" sx={{padding:"35px 0", fontWeight:"600", fontSize:'28px'}}>
-            Захиалга
-          </Typography>
-          <Routes>
-          <Route path='/order' element={<Order/>}/>
-        </Routes>
-        </Toolbar>
-        
+          <SearchAppBar/>
       </AppBar>
       <Drawer
         sx={{
+          borderRadius: '50px',
           width: drawerWidth,
           flexShrink: 0,
           "& .MuiDrawer-paper": {
             width: drawerWidth,
-            background: "#000027",
+            background: "#290758",
             color: "white",
             boxSizing: "border-box"
           }
@@ -65,13 +61,15 @@ export default function PermanentDrawerLeft() {
         variant="permanent"
         anchor="left"
         >
-        <Toolbar />
+        <Toolbar sx={{backgroundColor:"#33007b"}}>
+          <img src={Logo}></img><b style={{margin:'5px 0 0 10px', fontSize:'17px'}}>Food Card</b>
+        </Toolbar>
         <Divider />
         
         <List >
         {menuItemList.map((text, index) => (
         
-        <Link  style={{textDecoration:'none', color:'white'}} to={`/${text.pathname}`}>
+        <Link  style={{textDecoration:'none', color:'white', fontSize:'14px'}} to={`/${text.pathname}`}>
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon sx={{textDecoration:'none', paddingTop:'4px'}}>
@@ -92,10 +90,15 @@ export default function PermanentDrawerLeft() {
       </Drawer>
       <Box
       component="main"
-      sx={{ flexGrow: 1, bgcolor: "background.default", p: 2, marginTop:"60px" }}
+      sx={{ flexGrow: 1, bgcolor: "background.default", p: 2 }}
       >
         <Toolbar />
-        
+        <Routes>
+          <Route path='/order' element={<Order/>}/>
+          <Route path='/graphic' element={<Graphic/>}/>
+          <Route path='/setting' element={<Setting/>}/>
+          <Route path='/menu' element={<Menu/>}/>
+        </Routes>
       </Box>
     </Box>
     </Router>
