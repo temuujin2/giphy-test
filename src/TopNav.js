@@ -80,7 +80,7 @@ const customTheme = createTheme({
   `;
 
 export const SearchAppBar = () => {
-  const value = 4;
+  const value = 5;
   return (
     <ThemeProvider theme={customTheme}>
     <Box sx={{ flexGrow: 1 }}>

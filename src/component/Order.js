@@ -11,13 +11,7 @@ import {CustomizedAccordions} from './Accordion'
 
 const days = ['Даваа', 'Магмар', 'Лхагва', 'Пүрэв', 'Баасан', 'Бямба' ]
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
+
 
 export const Order = () => {
   return (
@@ -47,7 +41,9 @@ export const Order = () => {
         {days.map((_, index) => (
           <Grid key={index} {...{ xs: 12, sm: 6, md: 4, lg: 2 }} minHeight={400} backgroundColor="#F5F5F7">
             <Box sx={{width:'100%', height:'40px', background:'white', padding:'10px 0 0 15px'}}>{days[index]}</Box>
-            <CustomizedAccordions/>
+            <CustomizedAccordions />
+            <CustomizedAccordions />
+            <CustomizedAccordions />
           </Grid>
           
         ))} 
