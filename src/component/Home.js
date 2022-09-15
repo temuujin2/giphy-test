@@ -14,6 +14,8 @@ import AssessmentIcon from '@mui/icons-material/Assessment';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import FoodBankIcon from '@mui/icons-material/FoodBank';
 
+import { BasicModalDialog } from '../component/Login';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -26,6 +28,7 @@ import {Order} from './Order'
 import { Graphic } from "./Graphic";
 import { Setting } from "./Setting";
 import { Menu } from "./Menu";
+import { Button } from "@mui/material";
 
 
 const drawerWidth = 200;
@@ -82,12 +85,16 @@ export default function PermanentDrawerLeft() {
                   
               </ListItemButton>
             </ListItem>
+            
         </Link>
           
           ))}
+          
         </List>
         <Divider />
+        <Box sx={{marginLeft:'5px', marginTop:'600px'}}><BasicModalDialog /></Box>
       </Drawer>
+      
       <Box
       component="main"
       sx={{ flexGrow: 1, bgcolor: "background.default", p: 2 }}
