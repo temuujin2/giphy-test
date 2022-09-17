@@ -1,13 +1,15 @@
 
-import './App.css';
-import PermanentDrawerLeft from './component/Home.js';
-import { BasicModalDialog } from './component/Login';
+import Auth from "./components/auth";
+import Dashboard from "./components/dashboard";
+import { useUserContext } from "./context/userContext";
 
-function App() {
+const App = () => {
+  const { user, loading, error } = useUserContext();
+
   return (
     <div className="App">
-      <BasicModalDialog/>
-      <PermanentDrawerLeft/>
+      {error && <span className="error">{"Хэрэглэгчийн мэдээлэл олдсонгүй"}</span>}
+      {loading ? <h2 style={{ fontSize: '22px', fontWeight: '400'}}>Түр хүлээнэ үү...</h2> : <> {user ? <Dashboard /> : <Auth />} </>}
     </div>
   );
 }

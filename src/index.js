@@ -1,12 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import { UserContextProvider } from "./context/userContext";
+import { StyledEngineProvider } from '@mui/material/styles';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <UserContextProvider>
+      <StyledEngineProvider injectFirst>
+        <App />
+      </StyledEngineProvider>
+    </UserContextProvider>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
-
