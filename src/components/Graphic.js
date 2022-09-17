@@ -34,6 +34,9 @@ export const Graphic = () => {
 
                 </Grid>
             </Box>
+            <Box>
+                
+            </Box>
 
         </Box>
     );
