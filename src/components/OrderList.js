@@ -87,7 +87,7 @@ const OrderList = () => {
             </option>
           ))}
         </select>
-        <button style={{width:'100px', padding:'5px', marginTop:'10px'}} type="submit">Оруулах</button>
+        <Button variant="contained" style={{width:'100px', padding:'5px', marginTop:'10px'}} type="submit">Оруулах</Button>
 
       </form>
       <Grid
@@ -123,11 +123,12 @@ const OrderList = () => {
             <Grid key={category} {...{ xs: 12, sm: 6, md: 4, lg: 2 }} minHeight={400} width={"100vw"} backgroundColor="#F5F5F7">
             <Box sx={{width: '100%', height: '40px', background: 'white', padding: '10px 0 0 15px' }}>{category}</Box>
 
-            <ul style={{display:'flex', justifyContent:'center',}}>
+            <ul style={{display:'flex', alignItems:'center', flexDirection:'column'}}>
               {categoryTodos.map((todo) => {
                 return (
                   <Box key={todo.id} style={{ textDecoration: "none", display:'flex', flexDirection:'column',
-                  border:'1px solid grey', width:'90%', borderRadius:'10px', fontSize:'14px', fontWeight:'300' }}>
+                  border:'1px solid grey', width:'80%', borderRadius:'10px', fontSize:'14px', fontWeight:'300',
+                  marginTop:'5px' }}>
                     <p
                       type="checkbox"
                       checked={todo.isChecked}
