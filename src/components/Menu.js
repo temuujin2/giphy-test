@@ -58,11 +58,11 @@ export const Menu = () => {
     }
     return (
         <Box style={{margin:'0 -30px',display:'flex',flexDirection:'column'}}>
-            <Box>
+                <Box  sx={{display:'flex'}}>
                     <input type="text" placeholder='Хоол нэмэх' onChange={(event) => setName(event.target.value)} />
 
                     <Button
-                      sx={{height:'43px', marginTop:'-2px'}}
+                      sx={{height:'43.5px', marginTop:'12.4px'}}
                       variant='contained'
                       onClick={() => {
                         setAddFood([...addFood, name]);
@@ -102,6 +102,7 @@ export const Menu = () => {
                                     padding: "50px 0 20px 0",
                                     width: "200px",
                                     boxShadow: "none",
+                                    borderRadius:'60px 60px 10px 10px',
                                     border: "0.5px solid rgb(197, 197, 197)",
                                 }}
                             >
