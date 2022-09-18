@@ -15,6 +15,7 @@ const days = ['Даваа', 'Магмар', 'Лхагва', 'Пүрэв', 'Ба�
 export const Order = () => {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+            <OrderList />
             <Breadcrumbs>
                 <Link sx={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }} href='/'>Нүүр</Link>
                 <Typography color="text.primary">Захиалга</Typography>
@@ -48,7 +49,7 @@ export const Order = () => {
                 ))}
 
             </Box>
-                        <OrderList />
+                        
         </Box>
     );
 }
