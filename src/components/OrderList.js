@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
 
 const getDataFromLs = () => {
   const data = localStorage.getItem("todos");
@@ -17,8 +20,7 @@ const OrderList = () => {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday",
-    "Sunday"
+    "Saturday"
   ];
 
   const [todoInputValue, setTodoInputValue] = useState("");
@@ -36,7 +38,7 @@ const OrderList = () => {
   return (
     <>
       <form
-      style={{width:'500px'}}
+      style={{width:'500px', display:'flex',flexDirection:'column', alignItems:'center'}}
         onSubmit={(event) => {
           event.preventDefault();
           setTodos([
@@ -58,6 +60,7 @@ const OrderList = () => {
         <input
           required
           type="text"
+          placeholder="Захиалгын хаяг"
           value={todoInputValue}
           onChange={(event) => {
             setTodoInputValue(event.target.value);
@@ -65,7 +68,8 @@ const OrderList = () => {
         />
         <input
           required
-          type="text"
+          type="phone"
+          placeholder="Утасны дугаар"
           value={todoInputValue2}
           onChange={(event) => {
             setTodoInputValue2(event.target.value);
@@ -83,31 +87,47 @@ const OrderList = () => {
             </option>
           ))}
         </select>
-        <button type="submit">submit</button>
-        {/* top form end */}
+        <button style={{width:'100px', padding:'5px', marginTop:'10px'}} type="submit">Оруулах</button>
+
       </form>
+      <Grid
+                    container
+                    spacing={5}
+                    sx={{
+                        marginTop: '10px',
+                        '--Grid-borderWidth': '1px',
+                        borderTop: 'var(--Grid-borderWidth) solid',
+                        borderLeft: 'var(--Grid-borderWidth) solid',
+                        borderColor: 'divider',
+                        '& > div': {
+                            borderRight: 'var(--Grid-borderWidth) solid',
+                            borderBottom: 'var(--Grid-borderWidth) solid',
+                            borderColor: 'divider',
+                        },
+                    }}
+                >
       {categories.map((category) => {
         const categoryTodos = todos
           .filter((todo) => todo.category === category)
           .sort((a, b) => {
-            //return a.sorting - b.sorting;
+
             if (a.sorting > b.sorting) {
               return -1;
             }
             if (a.sorting < b.sorting) {
               return 1;
             }
-            // a must be equal to b
             return 0;
           });
         return (
-          <div style={{display:'flex', flexDirection:'column'}} key={category}>
-            <h2>{category}</h2>
+            <Grid key={category} {...{ xs: 12, sm: 6, md: 4, lg: 2 }} minHeight={400} width={"100vw"} backgroundColor="#F5F5F7">
+            <Box sx={{ width: '100%', height: '40px', background: 'white', padding: '10px 0 0 15px' }}>{category}</Box>
 
-            <ul>
+            <ul >
               {categoryTodos.map((todo) => {
                 return (
-                  <b key={todo.id} style={{ textDecoration: "none" }}>
+                  <Box key={todo.id} style={{ textDecoration: "none", display:'flex', flexDirection:'column',
+                  border:'1px solid black', width:'90%' }}>
                     <p
                       type="checkbox"
                       checked={todo.isChecked}
@@ -121,25 +141,29 @@ const OrderList = () => {
                         );
                       }}
                     ></p>
+                    <span >
+                      {todo.name}
+                    </span>
                     <span>
-                      {todo.name} {todo.name2}
+                    {todo.name2}
                     </span>
                     {todo.deadline && <span>{todo.deadline}</span>}
-                    <button
+                    <Button
                       type="button"
                       onClick={() => {
                         setTodos(todos.filter((todo_) => todo_.id !== todo.id));
                       }}
                     >
                       delete
-                    </button>
-                  </b>
+                    </Button>
+                  </Box>
                 );
               })}
             </ul>
-          </div>
+          </Grid>
         );
       })}
+      </Grid>
     </>
   );
 };
