@@ -121,13 +121,13 @@ const OrderList = () => {
           });
         return (
             <Grid key={category} {...{ xs: 12, sm: 6, md: 4, lg: 2 }} minHeight={400} width={"100vw"} backgroundColor="#F5F5F7">
-            <Box sx={{ width: '100%', height: '40px', background: 'white', padding: '10px 0 0 15px' }}>{category}</Box>
+            <Box sx={{width: '100%', height: '40px', background: 'white', padding: '10px 0 0 15px' }}>{category}</Box>
 
-            <ul >
+            <ul style={{display:'flex', justifyContent:'center',}}>
               {categoryTodos.map((todo) => {
                 return (
                   <Box key={todo.id} style={{ textDecoration: "none", display:'flex', flexDirection:'column',
-                  border:'1px solid black', width:'90%' }}>
+                  border:'1px solid grey', width:'90%', borderRadius:'10px', fontSize:'14px', fontWeight:'300' }}>
                     <p
                       type="checkbox"
                       checked={todo.isChecked}
