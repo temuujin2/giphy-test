@@ -1,75 +1,43 @@
-import React, { useState } from 'react';
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import { Typography } from '@mui/material';
+import Link from '@mui/material/Link';
 
 
-const FoodArr = [
-    'Salat',
-    'Desert',
-    'Burger',
-    'Hotdog',
-    'Spagetti',
-    'Chiken',
-    'Beef',
-    'Fish',
-    'Sushi',
-    'Soup',
-    'Steak'
-]
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+}));
 
 export const Setting = () => {
-    const [addFood, setAddFood] = useState([]);
-    const [name, setName] = useState("");
-
-    const addFoodName = (name) => {
-        setAddFood((foods) => {
-            return [...foods, name];
-        })
-    }
-
-    const  removeFromFood = (name) => {
-        setAddFood((foods) => {
-            const result = [...foods];
-            result.splice(
-                foods.indexOf(name),
-                1
-            )
-            return result;
-        })
-    }
     return (
-        <div style={{display:'flex'}}>
-            <div>
-                {
-                    FoodArr.map((name) => {
-                        if (addFood.includes(name)) return null;
-                        return <p key={name} >
-                            {name}
-                        <button onClick={() => addFoodName(name)}>Add</button>
-                        </p>
-                    })
-                }
-            </div>
-            <div>
-                {
-                    addFood.map((name) => {
-                        return <p key={name} >
-                            {name}
-                        <button onClick={() => removeFromFood(name)}>Remove</button>
-                        </p>
-                    })
-                }
-            </div>
-            <div>
-            <input type="text" onChange={(event) => setName(event.target.value)} />
+        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+            <Breadcrumbs>
+                <Link sx={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }} href='/'>Нүүр</Link>
+                <Typography color="text.primary">Тохиргоо</Typography>
+            </Breadcrumbs>
+            <Box sx={{ flexGrow: 1, marginTop: '10px' }}>
+                <Grid container spacing={3}>
+                    <Grid item xs="auto">
+                        <Item>variable width content</Item>
+                    </Grid>
+                    <Grid item xs="auto">
+                        <Item>variable width content</Item>
+                    </Grid>
 
-                <button
-                  onClick={() => {
-                    setAddFood([...addFood, name]);
-                    setName("");
-                  }}
-                >
-                  Add
-                </button>
-            </div>
-        </div>
+                </Grid>
+            </Box>
+            <Box>
+                
+            </Box>
+
+        </Box>
     );
 }

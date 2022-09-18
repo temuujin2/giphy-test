@@ -4,9 +4,10 @@ import Grid from '@mui/material/Grid';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import { Typography } from '@mui/material';
 import Link from '@mui/material/Link';
+import OrderList from './OrderList';
 
 
-
+const categories = ["Савласан", "Хүргэсэн", "Алдаатай"];
 const days = ['Даваа', 'Магмар', 'Лхагва', 'Пүрэв', 'Баасан', 'Бямба']
 
 
@@ -18,8 +19,9 @@ export const Order = () => {
                 <Link sx={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }} href='/'>Нүүр</Link>
                 <Typography color="text.primary">Захиалга</Typography>
             </Breadcrumbs>
-            <Box sx={{ flexGrow: 1, p: 2 }}>
-                <Grid
+            <Box sx={{ flexGrow: 1, p: 2}}>
+                {categories.map((_, index) => (
+                <Grid key={index}
                     container
                     spacing={5}
                     sx={{
@@ -43,9 +45,10 @@ export const Order = () => {
 
                     ))}
                 </Grid>
+                ))}
 
             </Box>
-
+                        <OrderList />
         </Box>
     );
 }
