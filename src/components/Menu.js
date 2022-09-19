@@ -162,7 +162,7 @@ export const Menu = () => {
                                 <Box marginTop="50px" color="black" fontWeight="500">
                                     17,000
                                     <Fab
-                                        color="primary"
+                                        color="success"
                                         sx={{ width: "36px", height: "10px", marginLeft: "60px" }}
                                     >
 

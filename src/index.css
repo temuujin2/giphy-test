@@ -11,6 +11,7 @@
   flex-direction: column;
   text-align: center;
   background: #F5F5F7;
+  width: 100%;
 }
 .App span {
   margin-top: 4%;

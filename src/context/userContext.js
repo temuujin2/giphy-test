@@ -8,7 +8,9 @@ import {
   sendPasswordResetEmail,
   sendSignInLinkToEmail,
 } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, firebase } from "../firebase";
+import "firebase/firestore";
+// import { collection } from "firebase/firestore";
 
 export const UserContext = createContext({});
 
@@ -42,12 +44,23 @@ export const UserContextProvider = ({ children }) => {
     }
     try {
       sendSignInLinkToEmail(auth, email, actionCodeSettings);
+      // const currentUser = firebase.auth().currentUser;
+
+      // const db = firebase.firestore();
+      // db.collection("users")
+      //   .doc(currentUser.uid)
+      //   .set({
+      //     email: currentUser.email,
+      //     name: name,
+      //   });
       alert("Sign Up Successfully")
     } catch (error) {
-
+      
     }
     setLoading(false);
     createUserWithEmailAndPassword(auth, email, password)
+
+    
     .then(() =>
         updateProfile(auth.currentUser, {
           displayName: name,
