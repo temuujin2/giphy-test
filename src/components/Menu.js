@@ -3,7 +3,6 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from '@mui/icons-material/Remove';
-import Fab from "@mui/material/Fab";
 import { Avatar } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
@@ -108,15 +107,11 @@ export const Menu = () => {
                             >
                                 {name}
                                 <p style={{ fontSize: "11px" }}>Порц-1</p>
-                                <Box marginTop="50px" color="black" fontWeight="500">
+                                <Box marginTop="50px" color="black" fontWeight="500" display='flex' justifyContent="space-around" alignItems="center">
                                     17,000
-                                    <Fab
-                                        color="pink"
-                                        sx={{ width: "36px", height: "10px", marginLeft: "60px" }}
-                                    >
-
-                                        <RemoveIcon color="error" onClick={() => removeFromFood(name)} />
-                                    </Fab>
+                                    <button onClick={() => removeFromFood(name)} style={{background:'#ffe5e4', border:'none', borderRadius:"50%", cursor:'pointer', width:"30px", height:'30px'}}>
+                                        <RemoveIcon sx={{padding:'4px 2px 2px 2px', color:'#FF0000'}} />
+                                    </button>
                                 </Box>
                             </Item>
                         </Grid>
@@ -138,6 +133,7 @@ export const Menu = () => {
                             justifyContent: "center",
                             position: "relative",
                             marginTop: "80px",
+                            
                         }}
                         key={name} >
                             <Avatar
@@ -155,19 +151,16 @@ export const Menu = () => {
                                     width: "200px",
                                     boxShadow: "none",
                                     border: "0.5px solid rgb(197, 197, 197)",
+                                    borderRadius:'10px',
                                 }}
                             >
                                 {name}
                                 <p style={{ fontSize: "11px" }}>Порц-1</p>
-                                <Box marginTop="50px" color="black" fontWeight="500">
+                                <Box marginTop="50px" color="black" fontWeight="500" display='flex' justifyContent="space-around" alignItems="center">
                                     17,000
-                                    <Fab
-                                        color="success"
-                                        sx={{ width: "36px", height: "10px", marginLeft: "60px" }}
-                                    >
-
-                                        <AddIcon onClick={() => addFoodName(name)} />
-                                    </Fab>
+                                    <button onClick={() => addFoodName(name)} style={{background:'#f1f8e6', border:'none', borderRadius:"50%", cursor:'pointer', width:"30px", height:'30px'}}>
+                                        <AddIcon sx={{padding:'4px 2px 2px 2px', color:'#66B60F'}} />
+                                    </button>
                                 </Box>
                             </Item>
                         

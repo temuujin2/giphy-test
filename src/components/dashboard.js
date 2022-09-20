@@ -21,6 +21,7 @@ import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import AssessmentIcon from '@mui/icons-material/Assessment';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import FoodBankIcon from '@mui/icons-material/FoodBank';
+import LogoSvg from "../images/Logo.svg";
 
 import {
   BrowserRouter as Router,
@@ -103,11 +104,13 @@ const Dashboard = () => {
   return (
     <Router>
       <Box sx={{ display: 'flex' }}>
+        
         <CssBaseline />
         <AppBar position="fixed" open={open} >
+        
           <Toolbar sx={{ background: 'white', color: 'black' }}>
             <IconButton
-              color="secondary"
+              color="primary"
               aria-label="open drawer"
               onClick={handleDrawerOpen}
               edge="start"
@@ -117,7 +120,7 @@ const Dashboard = () => {
             </IconButton>
             <Typography variant="p" noWrap component="div" display="flex" gap="20px" alignItems="center" position='absolute' right="20px">
               <Box display='flex' flexDirection='column' alignItems='center'>
-                <Typography color="#290758">{user.displayName}</Typography>
+                <Typography color="#000723">{user.displayName}</Typography>
                 <Typography sx={{ fontSize: '11px' }}>{user.email}</Typography>
               </Box>
               <Button sx={{ height: '30px' }} variant="outlined" onClick={logoutUser}>Гарах</Button>
@@ -131,7 +134,7 @@ const Dashboard = () => {
             '& .MuiDrawer-paper': {
               width: drawerWidth,
               boxSizing: 'border-box',
-              background: '#290758',
+              background: '#000723',
               color: 'white',
               fill: 'white',
             },
@@ -140,13 +143,15 @@ const Dashboard = () => {
           anchor="left"
           open={open}
         >
-          <DrawerHeader>
+          
+          <DrawerHeader sx={{position:'relative'}}>
+          <img style={{position:'absolute',height:'50px', left:'60px', top:'20px'}} src={LogoSvg} />
             <IconButton sx={{ color: 'white' }} onClick={handleDrawerClose}>
               {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
             </IconButton>
           </DrawerHeader>
           <Divider />
-          <List >
+          <List sx={{marginTop:'40px'}}>
             {menuItemList.map((text, index) => (
 
               <Link style={{ textDecoration: 'none', color: 'white', fontSize: '14px' }} to={`/${text.pathname}`}>

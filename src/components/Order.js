@@ -39,7 +39,7 @@ export const Order = () => {
                         },
                     }}
                 >
-
+                    
                     {days.map((_, index) => (
                         <Grid key={index} {...{ xs: 12, sm: 6, md: 4, lg: 2 }} minHeight={400} width={"100vw"} backgroundColor="#F5F5F7">
                             <Box sx={{ width: '100%', height: '40px', background: 'white', padding: '10px 0 0 15px' }}>{days[index]}</Box>

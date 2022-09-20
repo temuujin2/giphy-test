@@ -8,7 +8,7 @@ import {
   sendPasswordResetEmail,
   sendSignInLinkToEmail,
 } from "firebase/auth";
-import { auth, firebase } from "../firebase";
+import { auth } from "../firebase";
 import "firebase/firestore";
 // import { collection } from "firebase/firestore";
 
