@@ -5,10 +5,24 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import { Typography } from '@mui/material';
 import Link from '@mui/material/Link';
 import OrderList from './OrderList';
+import Frame from '../images/Frame.svg'
 
 
 const categories = ["Савласан", "Хүргэсэн", "Алдаатай"];
-const days = ['Даваа', 'Магмар', 'Лхагва', 'Пүрэв', 'Баасан', 'Бямба']
+// const days = [{day: 'Даваа', boxes: 2}, 
+//             {day: 'Магмар', boxes: 3}, 
+//             {day: 'Лхагва', boxes: 4},
+//             {day: 'Пүрэв', boxes: 1},
+//             {day: 'Баасан', boxes: 2},
+//             {day: 'Бямба', boxes: 5}
+//             ]
+const days = ['Даваа', 
+            'Магмар', 
+            'Лхагва', 
+            'Пүрэв', 
+            'Баасан', 
+            'Бямба'
+            ]
 
 
 
@@ -42,7 +56,7 @@ export const Order = () => {
                     
                     {days.map((_, index) => (
                         <Grid key={index} {...{ xs: 12, sm: 6, md: 4, lg: 2 }} minHeight={400} width={"100vw"} backgroundColor="#F5F5F7">
-                            <Box sx={{ width: '100%', height: '40px', background: 'white', padding: '10px 0 0 15px' }}>{days[index]}</Box>
+                            <Box sx={{ width: '100%', height: '40px', background: 'white', padding: '10px 0 0 15px' }}>{days[index]} <img src={Frame}/> </Box>
                         </Grid>
 
                     ))}
