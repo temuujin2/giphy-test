@@ -41,6 +41,7 @@ export const Order = () => {
                     container
                     spacing={5}
                     sx={{
+                        display:'flex',
                         marginTop: '10px',
                         '--Grid-borderWidth': '1px',
                         borderTop: 'var(--Grid-borderWidth) solid',
@@ -52,11 +53,14 @@ export const Order = () => {
                             borderColor: 'divider',
                         },
                     }}
-                >
+                >   
+                <Typography position="absolute" margin="7px 0 0 7px">
+                {categories[index]}
+                </Typography>
                     
                     {days.map((_, index) => (
-                        <Grid key={index} {...{ xs: 12, sm: 6, md: 4, lg: 2 }} minHeight={400} width={"100vw"} backgroundColor="#F5F5F7">
-                            <Box sx={{ width: '100%', height: '40px', background: 'white', padding: '10px 0 0 15px' }}>{days[index]} <img src={Frame}/> </Box>
+                        <Grid key={index} {...{ xs: 12, sm: 6, md: 4, lg: 2 }} minHeight={"content-fit"} width={"100vw"} backgroundColor="#F5F5F7" display='flex' textAlign="end" justifyContent="space-between">
+                            <Box sx={{ width: '100%', height: '40px', background: 'white', padding: '10px 0 0 15px' }}> <img style={{marginRight:'40px'}} src={Frame}/> </Box>
                         </Grid>
 
                     ))}

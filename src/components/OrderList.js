@@ -120,7 +120,7 @@ const OrderList = () => {
             return 0;
           });
         return (
-            <Grid key={category} {...{ xs: 12, sm: 6, md: 4, lg: 2 }} minHeight={400} width={"100vw"} backgroundColor="#F5F5F7">
+            <Grid key={category} {...{ xs: 12, sm: 6, md: 4, lg: 2 }} minHeight={"content-fit"} width={"100vw"} backgroundColor="#F5F5F7">
             <Box sx={{width: '100%', height: '40px', background: 'white', padding: '10px 0 0 15px' }}>{category}</Box>
 
             <ul style={{display:'flex', alignItems:'center', flexDirection:'column'}}>
