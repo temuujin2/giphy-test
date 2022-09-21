@@ -6,6 +6,8 @@ import { Typography } from '@mui/material';
 import Link from '@mui/material/Link';
 import OrderList from './OrderList';
 import Frame from '../images/Frame.svg'
+// import CustomizedAccordions from './Accordion'
+import { CustomizedAccordions } from './Accordion'
 
 
 const categories = ["Савласан", "Хүргэсэн", "Алдаатай"];
@@ -58,14 +60,15 @@ export const Order = () => {
                         </Typography>
 
                         {days.map((_, index) => (
-                            <Grid key={index} {...{ xs: 12, sm: 6, md: 4, lg: 2 }} minHeight={"content-fit"} width={"100vw"} backgroundColor="#F5F5F7" display='flex' textAlign="end" justifyContent="space-between">
+                            <Grid key={index} {...{ xs: 12, sm: 6, md: 4, lg: 2 }} minHeight={"300px"} width={"100vw"} backgroundColor="#F5F5F7" display='flex' textAlign="end" justifyContent="space-between">
                                 <Box sx={{ width: '100%', height: '40px', background: 'white', padding: '10px 0 0 15px' }}> <img style={{ marginRight: '40px' }} src={Frame} /> </Box>
+                                <Box position="absolute" width="100%" display="flex">
+                                    <CustomizedAccordions />
+                                </Box>
                             </Grid>
-
                         ))}
                     </Grid>
                 ))}
-
             </Box>
 
         </Box>
