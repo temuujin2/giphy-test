@@ -104,13 +104,13 @@ const Dashboard = () => {
   return (
     <Router>
       <Box sx={{ display: 'flex' }}>
-        
+
         <CssBaseline />
         <AppBar position="fixed" open={open} >
-        
+
           <Toolbar sx={{ background: 'white', color: 'black' }}>
             <IconButton
-              color="primary"
+              color="inherit"
               aria-label="open drawer"
               onClick={handleDrawerOpen}
               edge="start"
@@ -143,15 +143,15 @@ const Dashboard = () => {
           anchor="left"
           open={open}
         >
-          
-          <DrawerHeader sx={{position:'relative'}}>
-          <img style={{position:'absolute',height:'50px', left:'60px', top:'20px'}} src={LogoSvg} />
+
+          <DrawerHeader sx={{ position: 'relative' }}>
+            <img style={{ position: 'absolute', height: '50px', left: '60px', top: '20px' }} src={LogoSvg} />
             <IconButton sx={{ color: 'white' }} onClick={handleDrawerClose}>
               {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
             </IconButton>
           </DrawerHeader>
           <Divider />
-          <List sx={{marginTop:'40px'}}>
+          <List sx={{ marginTop: '40px' }}>
             {menuItemList.map((text, index) => (
 
               <Link style={{ textDecoration: 'none', color: 'white', fontSize: '14px' }} to={`/${text.pathname}`}>
@@ -178,7 +178,7 @@ const Dashboard = () => {
         <Main open={open}>
           <DrawerHeader />
           <Routes>
-          <Route path='/' element={<Home />} />
+            <Route path='/' element={<Home />} />
             <Route path='/order' element={<Order />} />
             <Route path='/graphic' element={<Graphic />} />
             <Route path='/setting' element={<Setting />} />

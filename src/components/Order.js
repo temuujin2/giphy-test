@@ -16,59 +16,58 @@ const categories = ["Савласан", "Хүргэсэн", "Алдаатай"];
 //             {day: 'Баасан', boxes: 2},
 //             {day: 'Бямба', boxes: 5}
 //             ]
-const days = ['Даваа', 
-            'Магмар', 
-            'Лхагва', 
-            'Пүрэв', 
-            'Баасан', 
-            'Бямба'
-            ]
+const days = ['Даваа',
+    'Магмар',
+    'Лхагва',
+    'Пүрэв',
+    'Баасан',
+    'Бямба'
+]
 
 
 
 export const Order = () => {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            
             <Breadcrumbs>
                 <Link sx={{ color: 'inherit', textDecoration: 'none', fontSize: '14px' }} href='/'>Нүүр</Link>
                 <Typography color="text.primary">Захиалга</Typography>
             </Breadcrumbs>
             <OrderList />
-            <Box sx={{ flexGrow: 1, p: 2}}>
+            <Box sx={{ flexGrow: 1, p: 2 }}>
                 {categories.map((_, index) => (
-                <Grid key={index}
-                    container
-                    spacing={5}
-                    sx={{
-                        display:'flex',
-                        marginTop: '10px',
-                        '--Grid-borderWidth': '1px',
-                        borderTop: 'var(--Grid-borderWidth) solid',
-                        borderLeft: 'var(--Grid-borderWidth) solid',
-                        borderColor: 'divider',
-                        '& > div': {
-                            borderRight: 'var(--Grid-borderWidth) solid',
-                            borderBottom: 'var(--Grid-borderWidth) solid',
+                    <Grid key={index}
+                        container
+                        spacing={5}
+                        sx={{
+                            display: 'flex',
+                            marginTop: '10px',
+                            '--Grid-borderWidth': '1px',
+                            borderTop: 'var(--Grid-borderWidth) solid',
+                            borderLeft: 'var(--Grid-borderWidth) solid',
                             borderColor: 'divider',
-                        },
-                    }}
-                >   
-                <Typography position="absolute" margin="7px 0 0 7px">
-                {categories[index]}
-                </Typography>
-                    
-                    {days.map((_, index) => (
-                        <Grid key={index} {...{ xs: 12, sm: 6, md: 4, lg: 2 }} minHeight={"content-fit"} width={"100vw"} backgroundColor="#F5F5F7" display='flex' textAlign="end" justifyContent="space-between">
-                            <Box sx={{ width: '100%', height: '40px', background: 'white', padding: '10px 0 0 15px' }}> <img style={{marginRight:'40px'}} src={Frame}/> </Box>
-                        </Grid>
+                            '& > div': {
+                                borderRight: 'var(--Grid-borderWidth) solid',
+                                borderBottom: 'var(--Grid-borderWidth) solid',
+                                borderColor: 'divider',
+                            },
+                        }}
+                    >
+                        <Typography position="absolute" margin="7px 0 0 7px">
+                            {categories[index]}
+                        </Typography>
 
-                    ))}
-                </Grid>
+                        {days.map((_, index) => (
+                            <Grid key={index} {...{ xs: 12, sm: 6, md: 4, lg: 2 }} minHeight={"content-fit"} width={"100vw"} backgroundColor="#F5F5F7" display='flex' textAlign="end" justifyContent="space-between">
+                                <Box sx={{ width: '100%', height: '40px', background: 'white', padding: '10px 0 0 15px' }}> <img style={{ marginRight: '40px' }} src={Frame} /> </Box>
+                            </Grid>
+
+                        ))}
+                    </Grid>
                 ))}
 
             </Box>
-                        
+
         </Box>
     );
 }

@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useUserContext } from "../context/userContext";
 import { Button } from "@mui/material";
+import Box from '@mui/material/Box';
 
 const Signin = () => {
   const emailRef = useRef();
@@ -23,7 +24,7 @@ const Signin = () => {
   };
 
   return (
-    <div className="form">
+    <Box className="form">
       <h2> Нэвтрэх хэсэг </h2>
       <form onSubmit={onSubmit}>
         <input placeholder="Имэйл хаяг" type="email" ref={emailRef} />
@@ -31,7 +32,7 @@ const Signin = () => {
         <Button variant="contained" type="submit">Нэвтрэх</Button>
         <p onClick={forgotPasswordHandler}>Нууц үгээ мартсан?</p>
       </form>
-    </div>
+    </Box>
   );
 };
 
