@@ -182,7 +182,7 @@ export const Home = () => {
                 </Grid>
             </Box>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }} display="flex" gap={5} mt={4}>
-                <Box sx={{ width: '250px', height: '350px', boxShadow: '2px 2px 8px rgb(235, 235, 235)', borderRadius: '10px', display: 'flex', justifyContent: 'space-between' }}>
+                <Box position="relative" sx={{ width: '250px', height: '350px', boxShadow: '2px 2px 8px rgb(235, 235, 235)', borderRadius: '10px', display: 'flex', justifyContent: 'space-between', flexDirection: 'column' }}>
                     <Typography mt={-5} position="absolute">Weekly Top Seller</Typography>
                     <PieChart width={400} height={400}>
                         <Pie
@@ -200,6 +200,46 @@ export const Home = () => {
                             ))}
                         </Pie>
                     </PieChart>
+                    <Box
+                        display="flex"
+                        alignItems="center"
+                        gap={1}
+                        position="absolute"
+                        bottom={80}
+                        left={20} >
+                        <b style={{ color: '#0088FE', fontSize: '40px' }}> • </b>
+                        <p> Item Sales . . . . . . . . . 33%</p>
+                    </Box>
+                    <Box
+                        display="flex"
+                        alignItems="center"
+                        gap={1}
+                        position="absolute"
+                        bottom={50}
+                        left={20} >
+                        <b style={{ color: '#00C49F', fontSize: '40px' }}> • </b>
+                        <p> Total Product . . . . . . . 25%</p>
+                    </Box>
+                    <Box
+                        display="flex"
+                        alignItems="center"
+                        gap={1}
+                        position="absolute"
+                        bottom={20}
+                        left={20} >
+                        <b style={{ color: '#FFBB28', fontSize: '40px' }}> • </b>
+                        <p> New Orders . . . . . . . .  25%</p>
+                    </Box>
+                    <Box
+                        display="flex"
+                        alignItems="center"
+                        gap={1}
+                        position="absolute"
+                        bottom={-10}
+                        left={20} >
+                        <b style={{ color: '#FF8042', fontSize: '40px' }}> • </b>
+                        <p> New Orders . . . . . . . . 17%</p>
+                    </Box>
                 </Box>
                 <Box sx={{ width: '280px', height: '350px', boxShadow: '2px 2px 8px rgb(235, 235, 235)', borderRadius: '10px', display: 'flex', justifyContent: 'space-between' }}>
                     <Typography mt={-5} position="absolute">Sales Report</Typography>
@@ -225,10 +265,10 @@ export const Home = () => {
                         height={300}
                         data={chartData}
                         margin={{
-                            top: 5,
+                            top: 30,
                             right: 30,
                             left: 20,
-                            bottom: 5,
+                            bottom: 0,
                         }}
                         barSize={20}
                     >
