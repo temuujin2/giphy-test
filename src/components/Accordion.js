@@ -13,6 +13,7 @@ const Accordion = styled((props) => (
 ))(({ theme }) => ({
     borderRadius: "10px",
     width: '200px',
+    marginTop:'10px',
     border: `1px solid ${theme.palette.divider}`,
     "&:not(:last-child)": {
         borderBottom: 0
@@ -24,7 +25,7 @@ const Accordion = styled((props) => (
 
 const AccordionSummary = styled((props) => (
     <MuiAccordionSummary
-        expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem" }} />}
+        expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.8rem" }} />}
         {...props}
     />
 ))(({ theme }) => ({

@@ -3,6 +3,8 @@ import { nanoid } from "nanoid";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
+import { CustomizedAccordions } from './Accordion'
+
 
 const getDataFromLs = () => {
   const data = localStorage.getItem("todos");
@@ -38,7 +40,7 @@ const OrderList = () => {
   return (
     <>
       <form
-      style={{width:'500px', display:'flex',flexDirection:'column', alignItems:'center'}}
+      style={{width:'500px', display:'flex', alignItems:'center'}}
         onSubmit={(event) => {
           event.preventDefault();
           setTodos([
@@ -57,6 +59,7 @@ const OrderList = () => {
           setDateInputValue("");
         }}
       >
+
         <input
           required
           type="text"
@@ -67,6 +70,7 @@ const OrderList = () => {
           }}
         />
         <input
+        
           required
           type="phone"
           placeholder="Утасны дугаар"
@@ -75,7 +79,7 @@ const OrderList = () => {
             setTodoInputValue2(event.target.value);
           }}
         />
-        <select style={{display:'flex', flexDirection:'column'}}
+        <select style={{display:'flex', flexDirection:'column', height:'44px', padding:'12px 0 0 5px'}}
           value={categorySelectValue}
           onChange={(event) => {
             setCategorySelectValue(event.target.value);
@@ -87,7 +91,9 @@ const OrderList = () => {
             </option>
           ))}
         </select>
-        <Button variant="contained" style={{width:'100px', padding:'5px', marginTop:'10px'}} type="submit">Оруулах</Button>
+        
+        
+        <Button variant="contained" type="submit">Оруулах</Button>
 
       </form>
       <Grid
@@ -120,8 +126,14 @@ const OrderList = () => {
             return 0;
           });
         return (
-            <Grid key={category} {...{ xs: 12, sm: 6, md: 4, lg: 2 }} minHeight={"content-fit"} width={"100vw"} backgroundColor="#F5F5F7">
+            <Grid 
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            key={category} {...{ xs: 12, sm: 6, md: 4, lg: 2 }} minHeight={"300px"} width={"100vw"} backgroundColor="#F5F5F7">
             <Box sx={{width: '100%', height: '40px', background: 'white', padding: '10px 0 0 15px' }}>{category}</Box>
+
+            <CustomizedAccordions />
 
             <ul style={{display:'flex', alignItems:'center', flexDirection:'column'}}>
               {categoryTodos.map((todo) => {

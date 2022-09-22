@@ -9,7 +9,6 @@ import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -106,8 +105,8 @@ const Dashboard = () => {
       <Box sx={{ display: 'flex' }}>
 
         <CssBaseline />
-        <AppBar position="fixed" open={open} >
-
+        <AppBar sx={{boxShadow:'none', borderBottom:'1px solid #ccc'}} position="fixed" open={open} >
+          
           <Toolbar sx={{ background: 'white', color: 'black' }}>
             <IconButton
               color="inherit"
@@ -127,6 +126,7 @@ const Dashboard = () => {
             </Typography>
           </Toolbar>
         </AppBar>
+
         <Drawer
           sx={{
             width: drawerWidth,
@@ -150,7 +150,7 @@ const Dashboard = () => {
               {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
             </IconButton>
           </DrawerHeader>
-          <Divider />
+
           <List sx={{ marginTop: '40px' }}>
             {menuItemList.map((text, index) => (
 
@@ -173,7 +173,7 @@ const Dashboard = () => {
             ))}
 
           </List>
-          <Divider />
+
         </Drawer>
         <Main open={open}>
           <DrawerHeader />
@@ -183,6 +183,7 @@ const Dashboard = () => {
             <Route path='/graphic' element={<Graphic />} />
             <Route path='/setting' element={<Setting />} />
             <Route path='/menu' element={<Menu />} />
+          <Route path='*' element={<h1>404 not found</h1>}/>
           </Routes>
         </Main>
       </Box>
