@@ -21,6 +21,7 @@ import AssessmentIcon from '@mui/icons-material/Assessment';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import FoodBankIcon from '@mui/icons-material/FoodBank';
 import LogoSvg from "../images/Logo.svg";
+import HomeIcon from '@mui/icons-material/Home';
 
 import {
   BrowserRouter as Router,
@@ -35,9 +36,10 @@ import { Setting } from "./Setting";
 import { Menu } from "./Menu";
 
 const drawerWidth = 240;
-const menuIcons = [<NoteAltIcon />, <AssessmentIcon />, <ManageAccountsIcon />, <FoodBankIcon />];
+const menuIcons = [<HomeIcon />, <NoteAltIcon />, <AssessmentIcon />, <ManageAccountsIcon />, <FoodBankIcon />];
 const menuItemList =
-  [{ name: 'Захиалга', pathname: 'order' },
+  [{ name: 'Нүүр', pathname: '' },
+  { name: 'Захиалга', pathname: 'order' },
   { name: 'График', pathname: 'graphic' },
   { name: 'Тохиргоо', pathname: 'setting' },
   { name: 'Меню', pathname: 'menu' }]
@@ -105,8 +107,8 @@ const Dashboard = () => {
       <Box sx={{ display: 'flex' }}>
 
         <CssBaseline />
-        <AppBar sx={{boxShadow:'none', borderBottom:'1px solid #ccc'}} position="fixed" open={open} >
-          
+        <AppBar sx={{ boxShadow: 'none', borderBottom: '1px solid #ccc' }} position="fixed" open={open} >
+
           <Toolbar sx={{ background: 'white', color: 'black' }}>
             <IconButton
               color="inherit"
@@ -183,7 +185,7 @@ const Dashboard = () => {
             <Route path='/graphic' element={<Graphic />} />
             <Route path='/setting' element={<Setting />} />
             <Route path='/menu' element={<Menu />} />
-          <Route path='*' element={<h1>404 not found</h1>}/>
+            <Route path='*' element={<h1>404 not found</h1>} />
           </Routes>
         </Main>
       </Box>
