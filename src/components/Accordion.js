@@ -11,7 +11,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 const Accordion = styled((props) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
-    borderRadius: "10px",
+    borderRadius: "3px",
     width: '200px',
     marginTop:'10px',
     border: `1px solid ${theme.palette.divider}`,

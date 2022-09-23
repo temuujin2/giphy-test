@@ -11,7 +11,7 @@ import {
     CartesianGrid,
     Legend
 } from 'recharts';
-import { Box, margin, padding } from '@mui/system';
+import { Box } from '@mui/system';
 import { Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -84,7 +84,7 @@ const chartData = [
         amt: 2500,
     },
     {
-        name: 'Sanday',
+        name: 'Sunday',
         uv: 3490,
         pv: 4300,
         amt: 2100,
@@ -258,7 +258,7 @@ export const Home = () => {
                         <Tooltip />
                     </PieChart>
                 </Box>
-                <Grid sx={{ minWidth: '50%', maxWidth: '350px', overflow: 'scroll', height: '350px', boxShadow: '2px 2px 8px rgb(235, 235, 235)', borderRadius: '10px', display: 'flex', justifyContent: 'space-between' }}>
+                <Grid sx={{ minWidth: '40%', maxWidth: '350px', overflow: 'scroll', height: '350px', boxShadow: '2px 2px 8px rgb(235, 235, 235)', borderRadius: '10px', display: 'flex', justifyContent: 'space-between' }}>
                     <Typography mt={-5} position="absolute">Best Sales</Typography>
                     <BarChart
                         width={700}
