@@ -22,6 +22,7 @@ import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import FoodBankIcon from '@mui/icons-material/FoodBank';
 import LogoSvg from "../images/Logo.svg";
 import HomeIcon from '@mui/icons-material/Home';
+import NotFound from '../images/Oops_Error.png';
 
 import {
   BrowserRouter as Router,
@@ -121,7 +122,7 @@ const Dashboard = () => {
             </IconButton>
             <Typography variant="p" noWrap component="div" display="flex" gap="20px" alignItems="center" position='absolute' right="20px">
               <Box display='flex' flexDirection='column' alignItems='center'>
-                <Typography color="#000723">{user.displayName}</Typography>
+                <Typography color="#000723" sx={{background:'#65b620', borderRadius:'5px', padding:'0 5px', color:'white'}}>{user.displayName}</Typography>
                 <Typography sx={{ fontSize: '11px' }}>{user.email}</Typography>
               </Box>
               <Button sx={{ height: '30px' }} variant="outlined" onClick={logoutUser}>Гарах</Button>
@@ -185,7 +186,7 @@ const Dashboard = () => {
             <Route path='/graphic' element={<Graphic />} />
             <Route path='/setting' element={<Setting />} />
             <Route path='/menu' element={<Menu />} />
-            <Route path='*' element={<h1>404 not found</h1>} />
+            <Route path='*' element={<img style={{height:"80vh"}} src={NotFound}/>} />
           </Routes>
         </Main>
       </Box>
